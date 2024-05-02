@@ -5,6 +5,10 @@ import DashboardPageLayout from "../pages/changelog/dashboard/DashboardPageLayou
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import DefaultPage from "../pages/changelog/dashboard/DefaultPage";
 import DashboardIndex from "../pages/changelog/dashboard/DashboardIndex";
+import ChangelogPage from "../pages/changelog/ChangelogPage";
+import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined';
+import AnalyticsPage from "../pages/changelog/dashboard/AnalyticsPage";
+import SaasPage from "../pages/changelog/dashboard/SaasPage";
 
 const appRoutes: RouteType[] = [
     {
@@ -34,8 +38,33 @@ const appRoutes: RouteType[] = [
                 sidebarProps:{
                     displayText: "Default"
                 }
+            },
+            {
+                path: "/dashboard/analytics",
+                element: <AnalyticsPage/>,
+                state: "dashboard.analytics",
+                sidebarProps:{
+                    displayText: "AnalyticsPage"
+                }
+            },
+            {
+                path: "/dashboard/saas",
+                element: <SaasPage/>,
+                state: "dashboard.saas",
+                sidebarProps:{
+                    displayText: "SaasPage"
+                }
             }
         ]
+    },
+    {
+        path: "/changelog",
+        element: <ChangelogPage/>,
+        state: "changelog",
+        sidebarProps:{
+            displayText: "Changelog",
+            icon: <ChecklistOutlinedIcon/>
+        }
     }
 ];
 
