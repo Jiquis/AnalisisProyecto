@@ -1,0 +1,28 @@
+{% block title %}Lista alimentos{% endblock title %}
+
+{% block content %}
+   
+
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>FEcha de vencimiento</th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for obj in alimentos %}
+                <tr>
+                    <td>{{ obj.nombre }}</td>
+                    <td>{{ obj.marca }}</td>
+                    <td>{{ obj.precio }}</td>
+                    <td>{{ obj.fecha_vencimiento }}</td>
+                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+{% block title %}Lista Todos{% endblock title %}
+
+{% block content %}
+   
+    <H1>Lista de alimentos</H1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Fecha de vencimiento</th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for obj in alimentos %}
+                <tr>
+                    <td>{{ obj.nombre }}</td>
+                    <td>{{ obj.marca }}</td>
+                    <td>{{ obj.precio }}</td>
+                    <td>{{ obj.fecha_vencimiento }}</td>
+                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <H1> Lista de medicinas</H1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Principio activo</th>
+            <th>Precio</th>
+            <th>Fecha de vencimiento</th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for obj in medicinas %}
+                <tr>
+                    <td>{{ obj.nombre }}</td>
+                    <td>{{ obj.principio_activo }}</td>
+                    <td>{{ obj.precio }}</td>
+                    <td>{{ obj.fecha_vencimiento }}</td>
+                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Lista de juguetes para mascotas</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for obj in juguetes %}
+                <tr>
+                    <td>{{ obj.nombre }}</td>
+                    <td>{{ obj.precio }}</td>
+                    <td>{{ obj.cantidad }}</td>
+                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Lista de utensilios para procedimientos quirurgicos</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Esterilizable</th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for obj in utensilios %}
+                <tr>
+                    <td>{{ obj.nombre }}</td>
+                    <td>{{ obj.precio }}</td>
+                    <td>{{ obj.cantidad }}</td>
+                    <td>{{ obj.esterilizable }}</td>
+                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

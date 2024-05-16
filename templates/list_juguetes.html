@@ -1,0 +1,26 @@
+{% block title %}Lista juguetes{% endblock title %}
+
+{% block content %}
+   
+
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for obj in juguetes %}
+                <tr>
+                    <td>{{ obj.nombre }}</td>
+                    <td>{{ obj.precio }}</td>
+                    <td>{{ obj.cantidad }}</td>
+                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
