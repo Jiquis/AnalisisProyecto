@@ -25,9 +25,17 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
     #########################INVENTARIO ###############################
+    #lista
     path('inventario/lista/alimentos', ListAlimentos.as_view(), name="lista_alimentos"),
     path('inventario/lista/medicinas', ListMedicinas.as_view(), name="lista_medicinas"),
     path('inventario/lista/juguetes', ListJuguetes.as_view(), name="lista_juguetes"),
     path('inventario/lista/utensilios', ListUtensilios.as_view(), name="lista_utensilios"),
     path('inventario/lista/todos', ListTodos.as_view(), name="lista_todos"),
+    #creacion
+    path('inventario/nuevo/alimentos', NewAlimentos.as_view(), name="nuevo_alimentos"),
+    path('inventario/nuevo/medicinas', NewMedicinas.as_view(), name="nuevo_medicinas"),
+    path('inventario/nuevo/juguetes', NewJuguetes.as_view(), name="nuevo_juguetes"),
+    path('inventario/nuevo/utensilios', NewUtensilios.as_view(), name="nuevo_utensilios"),
+    #edicion
+    
 ]

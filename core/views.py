@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterForm
+from .forms import *
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.views import generic
+from django.urls import reverse_lazy
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -27,6 +28,13 @@ class ListAlimentos(generic.View):
         }
         return render(request, self.template_name, self.context)
     
+## Crear Alimentos
+class NewAlimentos(generic.CreateView):
+    template_name = "new_alimento.html"
+    model = Alimentos
+    form_class = AlimentosForm
+    success_url = reverse_lazy("lista_alimentos")
+    
 class ListMedicinas(generic.View):
     template_name = "list_medicinas.html"
     context = {}
@@ -36,7 +44,14 @@ class ListMedicinas(generic.View):
         "medicinas" : Medicinas.objects.filter()
         }
         return render(request, self.template_name, self.context)
-    
+
+##Crear Medicinas
+class NewMedicinas(generic.CreateView):
+    template_name = "new_medicinas.html"
+    model = Medicinas
+    form_class = MedicinasForm
+    success_url = reverse_lazy("lista_medicinas")
+
 class ListJuguetes(generic.View):
     template_name = "list_juguetes.html"
     context = {}
@@ -47,6 +62,14 @@ class ListJuguetes(generic.View):
         }
         return render(request, self.template_name, self.context)
     
+#Crear Juguetes
+class NewJuguetes(generic.CreateView):
+    template_name = "new_juguetes.html"
+    model = Juguetes
+    form_class = JuguetesForm
+    success_url = reverse_lazy("lista_juguetes")
+
+
 class ListUtensilios(generic.View):
     template_name = "list_utensilios.html"
     context = {}
@@ -56,7 +79,12 @@ class ListUtensilios(generic.View):
         "utensilios" : Utensilios.objects.filter()
         }
         return render(request, self.template_name, self.context)
-
+#Crear utensilios
+class NewUtensilios(generic.CreateView):
+    template_name = "new_utensilios.html"
+    model = Utensilios
+    form_class = UtensiliosForm
+    success_url = reverse_lazy("lista_utensilios")
 class ListTodos(generic.View):
     template_name = "list_todos.html"
     context = {}
