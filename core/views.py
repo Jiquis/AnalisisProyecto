@@ -97,3 +97,50 @@ class ListTodos(generic.View):
         "utensilios" : Utensilios.objects.filter()
         }
         return render(request, self.template_name, self.context)
+    
+##########Modificar elementos
+class UpdateAlimentos(generic.UpdateView):
+    template_name = "update_alimentos.html"
+    model = Alimentos
+    form_class = UpdateAlimentosForm
+    success_url = reverse_lazy("lista_alimentos")
+
+class UpdateJuguetes(generic.UpdateView):
+    template_name = "update_juguetes.html"
+    model = Juguetes
+    form_class = UpdateJuguetesForm
+    success_url = reverse_lazy("lista_juguetes")
+
+class UpdateMedicinas(generic.UpdateView):
+    template_name = "update_medicinas.html"
+    model = Medicinas
+    form_class = UpdateMedicinasForm
+    success_url = reverse_lazy("lista_medicinas")
+
+
+class UpdateUtensilios(generic.UpdateView):
+    template_name = "update_utensilios.html"
+    model = Utensilios
+    form_class = UpdateUtensiliosForm
+    success_url = reverse_lazy("lista_utensilios")
+
+##Borrar elementos
+class DeleteAlimentos(generic.DeleteView):
+    template_name = "delete_alimentos.html"
+    model = Alimentos
+    success_url = reverse_lazy("lista_alimentos")
+
+class DeleteJuguetes(generic.DeleteView):
+    template_name = "delete_juguetes.html"
+    model = Juguetes
+    success_url = reverse_lazy("lista_juguetes")
+
+class DeleteMedicinas(generic.DeleteView):
+    template_name = "delete_medicinas.html"
+    model = Medicinas
+    success_url = reverse_lazy("lista_medicinas")
+
+class DeleteUtensilios(generic.DeleteView):
+    template_name = "delete_utensilios.html"
+    model = Utensilios
+    success_url = reverse_lazy("lista_utensilios")

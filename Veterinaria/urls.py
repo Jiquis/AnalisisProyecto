@@ -37,5 +37,13 @@ urlpatterns = [
     path('inventario/nuevo/juguetes', NewJuguetes.as_view(), name="nuevo_juguetes"),
     path('inventario/nuevo/utensilios', NewUtensilios.as_view(), name="nuevo_utensilios"),
     #edicion
-    
+    path('inventario/editar/alimentos/<int:pk>/', UpdateAlimentos.as_view(), name="editar_alimentos"),
+    path('inventario/editar/medicinas/<int:pk>/', UpdateMedicinas.as_view(), name="editar_medicinas"),
+    path('inventario/editar/juguetes/<int:pk>/', UpdateJuguetes.as_view(), name="editar_juguetes"),
+    path('inventario/editar/utensilios/<int:pk>/', UpdateUtensilios.as_view(), name="editar_utensilios"),
+    #Delete
+    path('inventario/eliminar/alimentos/<int:pk>/', DeleteAlimentos.as_view(), name="eliminar_alimentos"),
+    path('inventario/eliminar/medicinas/<int:pk>/', DeleteMedicinas.as_view(), name="eliminar_medicinas"),
+    path('inventario/eliminar/juguetes/<int:pk>/', DeleteJuguetes.as_view(), name="eliminar_juguetes"),
+    path('inventario/eliminar/utensilios/<int:pk>/', DeleteUtensilios.as_view(), name="eliminar_utensilios"),
 ]

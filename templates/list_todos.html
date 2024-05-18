@@ -19,7 +19,8 @@
                     <td>{{ obj.marca }}</td>
                     <td>{{ obj.precio }}</td>
                     <td>{{ obj.fecha_vencimiento }}</td>
-                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                    <td><a href="{% url 'editar_alimentos' obj.id %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'eliminar_alimentos' obj.id %}" class="btn btn-outline-danger">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -41,7 +42,8 @@
                     <td>{{ obj.principio_activo }}</td>
                     <td>{{ obj.precio }}</td>
                     <td>{{ obj.fecha_vencimiento }}</td>
-                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                    <td><a href="{% url 'editar_medicinas' obj.id %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'eliminar_medicinas' obj.id %}" class="btn btn-outline-danger">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -61,7 +63,8 @@
                     <td>{{ obj.nombre }}</td>
                     <td>{{ obj.precio }}</td>
                     <td>{{ obj.cantidad }}</td>
-                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                    <td><a href="{% url 'editar_juguetes' obj.id %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'eliminar_juguetes' obj.id %}" class="btn btn-outline-danger">Delete</a></td>  
                 </tr>
             {% endfor %}
         </tbody>
@@ -83,7 +86,8 @@
                     <td>{{ obj.precio }}</td>
                     <td>{{ obj.cantidad }}</td>
                     <td>{{ obj.esterilizable }}</td>
-                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                    <td><a href="{% url 'editar_utensilios' obj.id %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'eliminar_utensilios' obj.id %}" class="btn btn-outline-danger">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>

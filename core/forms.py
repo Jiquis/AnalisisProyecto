@@ -29,6 +29,17 @@ class AlimentosForm(forms.ModelForm):
         # Especificar el tipo de campo de fecha de vencimiento como 'date'
         self.fields['fecha_vencimiento'].widget = forms.DateInput(attrs={'type': 'date'})
 
+class UpdateAlimentosForm(forms.ModelForm):
+    class Meta:
+        model = Alimentos
+        fields = [
+            "nombre",
+            "marca",
+            "precio",
+            "cantidad",
+            "fecha_vencimiento",
+        ]
+
 class MedicinasForm(forms.ModelForm):
     class Meta:
         model = Medicinas
@@ -45,6 +56,17 @@ class MedicinasForm(forms.ModelForm):
         # Especificar el tipo de campo de fecha de vencimiento como 'date'
         self.fields['fecha_vencimiento'].widget = forms.DateInput(attrs={'type': 'date'})
 
+class UpdateMedicinasForm(forms.ModelForm):
+    class Meta:
+        model = Medicinas
+        fields = [
+            "nombre",
+            "principio_activo",
+            "precio",
+            "cantidad",
+            "fecha_vencimiento",
+        ]
+
 class JuguetesForm(forms.ModelForm):
     class Meta:
         model = Juguetes
@@ -53,6 +75,14 @@ class JuguetesForm(forms.ModelForm):
             "precio",
             "cantidad",
             "descripcion",
+        ]
+class UpdateJuguetesForm(forms.ModelForm):
+    class Meta:
+        model = Juguetes
+        fields = [
+            "nombre",
+            "precio",
+            "cantidad",
         ]
 
 class UtensiliosForm(forms.ModelForm):
@@ -63,5 +93,15 @@ class UtensiliosForm(forms.ModelForm):
             "precio",
             "cantidad",
             "descripcion",
+            "esterilizable",
+        ]
+
+class UpdateUtensiliosForm(forms.ModelForm):
+    class Meta:
+        model = Utensilios
+        fields = [
+            "nombre",
+            "precio",
+            "cantidad",
             "esterilizable",
         ]

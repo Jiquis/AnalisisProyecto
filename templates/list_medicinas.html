@@ -2,12 +2,14 @@
 
 {% block content %}
    
-
+<a href="{% url 'nuevo_medicinas' %}" class="btn btn-outline-warning">Nuevo</a>
     <table class="table table-striped">
         <thead>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Principio activo</th>
             <th>Precio</th>
+            <th>Cantidad</th>
             <th>Fecha de vencimiento</th>
             <th>ACTIONS</th>
             <th></th>
@@ -15,11 +17,14 @@
         <tbody>
             {% for obj in medicinas %}
                 <tr>
+                    <td>{{ obj.id }}</td>
                     <td>{{ obj.nombre }}</td>
                     <td>{{ obj.principio_activo }}</td>
                     <td>{{ obj.precio }}</td>
+                    <td>{{ obj.cantidad}}</td>
                     <td>{{ obj.fecha_vencimiento }}</td>
-                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
+                    <td><a href="{% url 'editar_medicinas' obj.id %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'eliminar_medicinas' obj.id %}" class="btn btn-outline-danger">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>

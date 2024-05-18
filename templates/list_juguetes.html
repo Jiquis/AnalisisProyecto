@@ -2,9 +2,10 @@
 
 {% block content %}
    
-
+<a href="{% url 'nuevo_juguetes' %}" class="btn btn-outline-warning">Nuevo</a>
     <table class="table table-striped">
         <thead>
+            <th>ID</th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Cantidad</th>
@@ -14,11 +15,12 @@
         <tbody>
             {% for obj in juguetes %}
                 <tr>
+                    <td>{{ obj.id }}</td>
                     <td>{{ obj.nombre }}</td>
                     <td>{{ obj.precio }}</td>
                     <td>{{ obj.cantidad }}</td>
-                    <td><a href="" class="btn btn-outline-danger">Delete</a></td>
-                </tr>
+                    <td><a href="{% url 'editar_juguetes' obj.id %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'eliminar_juguetes' obj.id %}" class="btn btn-outline-danger">Delete</a></td>                </tr>
             {% endfor %}
         </tbody>
     </table>
