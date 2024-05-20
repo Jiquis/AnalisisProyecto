@@ -20,7 +20,8 @@
                     <td>{{ obj.precio }}</td>
                     <td>{{ obj.cantidad }}</td>
                     <td><a href="{% url 'editar_juguetes' obj.id %}" class="btn btn-outline-warning">Update</a></td>
-                    <td><a href="{% url 'eliminar_juguetes' obj.id %}" class="btn btn-outline-danger">Delete</a></td>                </tr>
+                    <td><a href="{% url 'eliminar_juguetes' obj.id %}" class="btn btn-outline-danger">Delete</a></td>                
+                </tr>
             {% endfor %}
         </tbody>
     </table>

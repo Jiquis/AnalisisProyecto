@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.views import generic
 from django.urls import reverse_lazy
+from rest_framework import generics
+from .serializers import *
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -144,3 +146,38 @@ class DeleteUtensilios(generic.DeleteView):
     template_name = "delete_utensilios.html"
     model = Utensilios
     success_url = reverse_lazy("lista_utensilios")
+
+
+##Serializers
+    #alimentos
+class AlimentosListCreate(generics.ListCreateAPIView):
+    queryset = Alimentos.objects.all()
+    serializer_class = AlimentoSerializer
+
+class AlimentosDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Alimentos.objects.all()
+    serializer_class = AlimentoSerializer
+#medicinas
+class MedicinasListCreate(generics.ListCreateAPIView):
+    queryset = Medicinas.objects.all()
+    serializer_class = MedicinasSerializer
+
+class MedicinasDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Medicinas.objects.all()
+    serializer_class = MedicinasSerializer
+#juguetes
+class JuguetesListCreate(generics.ListCreateAPIView):
+    queryset = Juguetes.objects.all()
+    serializer_class = JuguetesSerializer
+
+class JuguetesDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Juguetes.objects.all()
+    serializer_class = JuguetesSerializer
+#Utensilios
+class UtensiliosListCreate(generics.ListCreateAPIView):
+    queryset = Utensilios.objects.all()
+    serializer_class = UtensiliosSerializer
+
+class UtensiliosDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Utensilios.objects.all()
+    serializer_class = UtensiliosSerializer

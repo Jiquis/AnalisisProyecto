@@ -46,4 +46,13 @@ urlpatterns = [
     path('inventario/eliminar/medicinas/<int:pk>/', DeleteMedicinas.as_view(), name="eliminar_medicinas"),
     path('inventario/eliminar/juguetes/<int:pk>/', DeleteJuguetes.as_view(), name="eliminar_juguetes"),
     path('inventario/eliminar/utensilios/<int:pk>/', DeleteUtensilios.as_view(), name="eliminar_utensilios"),
+    #Serializers
+    path('alimentos/', AlimentosListCreate.as_view(), name='alimento-list-create'),
+    path('alimentos/<int:pk>/', AlimentosDetail.as_view(), name='alimento-detail'),
+    path('juguetes/', JuguetesListCreate.as_view(), name='juguetes-list-create'),
+    path('juguetes/<int:pk>/', JuguetesDetail.as_view(), name='juguetes-detail'),
+    path('medicinas/', MedicinasListCreate.as_view(), name='medicinas-list-create'),
+    path('medicinas/<int:pk>/', MedicinasDetail.as_view(), name='medicinas-detail'),
+    path('utensilios/', UtensiliosListCreate.as_view(), name='utensilios-list-create'),
+    path('utensilios/<int:pk>/', UtensiliosDetail.as_view(), name='utensilios-detail'),
 ]
