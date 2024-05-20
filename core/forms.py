@@ -105,3 +105,31 @@ class UpdateUtensiliosForm(forms.ModelForm):
             "cantidad",
             "esterilizable",
         ]
+
+class CitasForm(forms.ModelForm):
+    class Meta:
+        model = Citas
+        fields = [
+            "user",
+            "fecha",
+            'mascota',
+            "motivo",
+            "confirmado",
+            "estado"
+        ]
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Especificar el tipo de campo de fecha de vencimiento como 'date'
+        self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date'})
+
+class UpdateCitasForm(forms.ModelForm):
+    class Meta:
+        model = Citas
+        fields = [
+            "user",
+            "fecha",
+            'mascota',
+            "motivo",
+            "confirmado",
+            "estado"
+        ]

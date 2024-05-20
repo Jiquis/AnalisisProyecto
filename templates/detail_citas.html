@@ -1,0 +1,46 @@
+{% block title %}Detail citas{% endblock title %}
+
+{% block content %}
+<br>
+    <h1>{{ citas.user }}</h1>
+    <br>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <strong>Descripcion</strong>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Motivo de la cita: </strong> {{ citas.motivo }}
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <strong>Fecha de cita</strong>
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong></strong> 
+              <strong>Le fecha de la cita es: </strong> {{ citas.fecha }}
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <strong>Status</strong>
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>estado de la cita</strong> {{ citas.estado}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'lista_citas' %}" class="btn btn-outline-info">Back</a>
+{% endblock content %}

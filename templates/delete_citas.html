@@ -1,9 +1,9 @@
-{% block title %}Delete alimentos {% endblock title %}
+{% block title %}Delete citas {% endblock title %}
 
 {% block content %}
     <form action="" method="post">
         {% csrf_token %}
-        <h3>¿Deseas eliminar el alimento con nombre: {{ object }} ?</h3>
+        <h3>¿Deseas eliminar la cita con nombre: {{ object }} ?</h3>
         <a href="{% url 'lista_citas' %}" class="btn btn-outline-info">Cancel</a>
         <button type="submit" class="btn btn-outline-danger">Delete</button>
     </form>

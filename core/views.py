@@ -181,3 +181,45 @@ class UtensiliosListCreate(generics.ListCreateAPIView):
 class UtensiliosDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Utensilios.objects.all()
     serializer_class = UtensiliosSerializer
+
+#Citas
+#lista citas
+class ListCitas(generic.View):
+    template_name = "list_citas.html"
+    context = {}
+
+    def get(self, request, *args, **kwargs):
+        self.context = {
+            "citas": Citas.objects.all() 
+        }
+        return render(request, self.template_name, self.context)
+#detalles citas
+class DetailCitas(generic.View):
+    template_name = "detail_citas.html"
+    context = {}
+
+    def get(self, request, pk, *args, **kwargs):
+        self.context = {
+            "citas": Citas.objects.get(pk=pk)
+        }
+        return render(request, self.template_name, self.context)
+##Create
+class NewCitas(generic.CreateView):
+    template_name = "new_citas.html"
+    model = Citas
+    form_class = CitasForm
+    success_url = reverse_lazy("lista_citas")
+
+
+## Update
+class UpdateCitas(generic.UpdateView):
+    template_name = "update_citas.html"
+    model = Citas
+    form_class = UpdateCitasForm
+    success_url = reverse_lazy("lista_citas")
+
+## Delete
+class DeleteCitas(generic.DeleteView):
+    template_name = "delete_citas.html"
+    model = Citas
+    success_url = reverse_lazy("lista_citas")

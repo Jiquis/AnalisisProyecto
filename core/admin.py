@@ -38,3 +38,14 @@ class JuguetesAdmin(admin.ModelAdmin):
         "cantidad",
         "esterilizable"
     ]
+#Citas
+@admin.register(Citas)
+class CitasAdmin(admin.ModelAdmin):
+    list_display = [
+        "user",
+        "fecha",
+        "mascota",
+        "motivo",
+        "confirmado",
+        "estado"
+    ]
