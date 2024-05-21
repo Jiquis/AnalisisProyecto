@@ -20,6 +20,7 @@ from core.views import *
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
+    path('', ListTodos.as_view(), name="lista_todos"),
     path('admin/', admin.site.urls),
     path('registro/', register, name='registro'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
