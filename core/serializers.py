@@ -20,3 +20,8 @@ class UtensiliosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Utensilios
         fields = ['id', 'nombre', 'precio', 'estelirizable']
+
+class CitaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Citas
+        fields = '__all__'

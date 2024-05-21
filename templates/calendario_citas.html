@@ -1,0 +1,41 @@
+{% load static %}
+
+{% block title %}FullCalendar View{% endblock title %}
+
+
+{% block fullcalendar %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          headerToolbar: {
+            left: "prev, next, today",
+            center: "title",
+            right: "dayGridMonth, dayGridWeek, listWeek"
+          },
+          events: [
+            {% for cita in citas %}
+              {
+                title: "{{ citas.user }}",
+                start: "{{ citas.fecha | date:'Y-m-d'}}",
+                end: "{{ citas.fecha | date:'Y-m-d'}}",
+                descripcion: "{{ citas.motivo }}",
+                color: "#09ac89",
+                
+              },
+            {% endfor %}
+          ]
+        });
+        calendar.render();
+      });
+    </script>
+{% endblock fullcalendar %}
+
+{% block content %}
+
+<div class="container-fluid !direction !spacing mx-auto">
+    <div id='calendar'></div> 
+  </div>
+  
+{% endblock content %}

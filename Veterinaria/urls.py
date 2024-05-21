@@ -55,10 +55,13 @@ urlpatterns = [
     path('medicinas/<int:pk>/', MedicinasDetail.as_view(), name='medicinas-detail'),
     path('utensilios/', UtensiliosListCreate.as_view(), name='utensilios-list-create'),
     path('utensilios/<int:pk>/', UtensiliosDetail.as_view(), name='utensilios-detail'),
+    path('citas/', CitasListCreateView.as_view(), name='cita-list-create'),
+    path('citas/<int:pk>/', CitasDetailView.as_view(), name='cita-detail'),
     #Citas
     path('citas/lista', ListCitas.as_view(), name="lista_citas"),
     path('citas/detalles/<int:pk>/', DetailCitas.as_view(), name="detalles_citas"),
     path('citas/nuevo', NewCitas.as_view(), name="nuevo_citas"),
     path('citas/borrar/<int:pk>', DeleteCitas.as_view(), name="eliminar_citas"),
     path('citas/editar/<int:pk>/', UpdateCitas.as_view(), name="editar_citas"),
+    path('citas/calendario', CalendarioCitas.as_view(), name="calendario_citas"),
 ]

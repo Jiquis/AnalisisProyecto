@@ -7,6 +7,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from rest_framework import generics
 from .serializers import *
+from django.http import JsonResponse
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -182,6 +183,14 @@ class UtensiliosDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Utensilios.objects.all()
     serializer_class = UtensiliosSerializer
 
+class CitasListCreateView(generics.ListCreateAPIView):
+    queryset = Citas.objects.all()
+    serializer_class = CitaSerializer
+
+class CitasDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Citas.objects.all()
+    serializer_class = CitaSerializer
+
 #Citas
 #lista citas
 class ListCitas(generic.View):
@@ -223,3 +232,13 @@ class DeleteCitas(generic.DeleteView):
     template_name = "delete_citas.html"
     model = Citas
     success_url = reverse_lazy("lista_citas")
+#calendario
+class CalendarioCitas(generic.View):
+    template_name = "calendario_citas.html"
+    context = {}
+
+    def get(self, request):
+        self.context = {
+            "citas": Citas.objects.filter(estado=True)
+        }
+        return render(request, self.template_name, self.context)
