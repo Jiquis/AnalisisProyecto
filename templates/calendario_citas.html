@@ -1,3 +1,5 @@
+{% extends 'base/base.html' %}
+
 {% load static %}
 
 {% block title %}FullCalendar View{% endblock title %}
@@ -15,7 +17,7 @@
             right: "dayGridMonth, dayGridWeek, listWeek"
           },
           events: [
-            {% for cita in citas %}
+            {% for obj in citas %}
               {
                 title: "{{ citas.user }}",
                 start: "{{ citas.fecha | date:'Y-m-d'}}",

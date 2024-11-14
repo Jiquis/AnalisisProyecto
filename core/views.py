@@ -239,6 +239,6 @@ class CalendarioCitas(generic.View):
 
     def get(self, request):
         self.context = {
-            "citas": Citas.objects.filter(estado=True)
+            "citas": Citas.objects.filter(estado="NoStared")
         }
         return render(request, self.template_name, self.context)
