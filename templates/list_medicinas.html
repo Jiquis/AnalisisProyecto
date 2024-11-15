@@ -1,35 +1,48 @@
 {% extends 'base/base.html' %}
-{% block title %}Lista Medicinas{% endblock title %}
+{% block title %} Lista Medicinas {% endblock title %}
 
 {% block content %}
-   
 
-    <table class="table table-striped">
-        <thead>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Principio activo</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Fecha de vencimiento</th>
-            <th>ACTIONS</th>
-            <th></th>
-        </thead>
-        <tbody>
+    <div class="flex flex-row space-x-4">
+        <p class="font-bold text-xl"> Lista de medicinas</p>
+        <a href="{% url 'nuevo_medicinas' %}" class="flex ml-8 gap-4 px-4 text-white items-center justify-center border-2 bg-blue-800 hover:bg-blue-600 hover:text-black active:bg-blue-200 active:text-black">Nuevo</a>
+    </div>
+    <div class="flex mb-8 flex-col w-full h-64 border-2 border-black">
+        <div class="flex flex-row w-full h-fit border-black border-b-2">
+            <p class="w-1/6">ID</p>
+            <p class="w-1/6">Nombre</p>
+            <p class="w-1/6">Principio activo</p>
+            <p class="w-1/6">Precio</p>
+            <p class="w-1/6">Cantidad</p>
+            <p class="w-1/6">Fecha de vencimiento</p>
+            <p class="w-1/6">ACTIONS</p>
+        </div>
+        <div class="flex flex-col w-full max-h-64 overflow-y-auto">
             {% for obj in medicinas %}
-                <tr>
-                    <td>{{ obj.id }}</td>
-                    <td>{{ obj.nombre }}</td>
-                    <td>{{ obj.principio_activo }}</td>
-                    <td>{{ obj.precio }}</td>
-                    <td>{{ obj.cantidad}}</td>
-                    <td>{{ obj.fecha_vencimiento }}</td>
-                    <td><a href="{% url 'editar_medicinas' obj.id %}" class="btn btn-outline-warning">Update</a></td>
-                    <td><a href="{% url 'eliminar_medicinas' obj.id %}" class="btn btn-outline-danger">Delete</a></td>
-                </tr>
+            <div class="flex flex-row w-full h-fit odd:bg-white even:bg-gray-300">
+                <div class="w-1/6">{{ obj.id }}</div>
+                <div class="w-1/6">{{ obj.nombre }}</div>
+                <div class="w-1/6">{{ obj.principio_activo }}</div>
+                <div class="w-1/6">{{ obj.precio }}</div>
+                <div class="w-1/6">{{ obj.cantidad }}</div>
+                <div class="w-1/6">{{ obj.fecha_vencimiento }}</div>
+                <div class="w-1/6 flex flex-row space-x-2">
+                    <a 
+                        href="{% url 'editar_medicinas' obj.id %}" 
+                        class="flex gap-4 px-4 text-white items-center justify-center border-2 bg-blue-800 hover:bg-blue-600 hover:text-black active:bg-blue-200 active:text-black"
+                    >
+                        Update
+                    </a>
+                    <a 
+                        href="{% url 'eliminar_medicinas' obj.id %}" 
+                        class="flex gap-4 px-4 text-white items-center justify-center border-2 bg-red-800 hover:bg-red-600 hover:text-black active:bg-red-200 active:text-black"
+                    >
+                        Delete
+                    </a>
+                </div>
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'nuevo_medicinas' %}" class="btn btn-outline-warning">Nuevo</a>
+        </div>
+    </div>
 
 {% endblock content %}

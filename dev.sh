@@ -24,7 +24,7 @@ else
     tmux new-session -d -s dev_session
 
     # Start the Django development server in the first tmux window
-    tmux send-keys -t dev_session "python3 manage.py runserver 0.0.0.0:8080" C-m
+    tmux send-keys -t dev_session "python3 manage.py runserver" C-m
 
     # Create a new tmux window and start the Tailwind CSS watcher there
     tmux new-window -t dev_session
