@@ -3,7 +3,7 @@
 
 {% block content %}
    
-<a href="{% url 'nuevo_juguetes' %}" class="btn btn-outline-warning">Nuevo</a>
+
     <table class="table table-striped">
         <thead>
             <th>ID</th>
@@ -26,5 +26,5 @@
             {% endfor %}
         </tbody>
     </table>
-
+    <a href="{% url 'nuevo_juguetes' %}" class="btn btn-outline-warning">Nuevo</a>
 {% endblock content %}

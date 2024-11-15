@@ -5,15 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock title %}</title>
-    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href= "{% static 'fullcalendar/main.css'%}" rel='stylesheet' /> -->
-    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href= "{% static 'fullcalendar/main.css'%}" rel='stylesheet' />
     {% block fullcalendar %}{% endblock fullcalendar %}
   </head>
   <body>
-  <div class="w-screen h-screen">
-    <nav class="flex w-full bg-gray-800 space-x-8">
-      <div class="w-full">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,27 +20,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="">Prestamos</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'lista_citas' %}">Citas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Nuevo prestamo</a>
+              <a class="nav-link" href="">Nueva cita</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Catalogos
+                Inventario
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Herramienta Manual</a></li>
-                <li><a class="dropdown-item" href="">Herrramienta de ferreteria</a></li>
-                <li><a class="dropdown-item" href="">Material de limpieza</a></li>
-                <li><a class="dropdown-item" href="">Equipo de mantenimiento</a></li>
-                <li><a class="dropdown-item" href="">Equipo de jardineria</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_alimentos' %}">Lista de alimentps</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_medicinas' %}">Lista de medicinas</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_juguetes' %}">Lista de juguetes</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_utensilios' %}">Lista de utensilios quirurgicos</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="">Catalogo general</a></li>
+                <li><a class="dropdown-item" href="{% url 'lista_todos' %}">Catalogo general</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="">Calendario prestamos</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'calendario_citas' %}">Calendario prestamos</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
