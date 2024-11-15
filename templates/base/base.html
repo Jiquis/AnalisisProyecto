@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock title %}</title>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href= "{% static 'fullcalendar/main.css'%}" rel='stylesheet' />
+    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href= "{% static 'fullcalendar/main.css'%}" rel='stylesheet' /> -->
+    <link rel="stylesheet" href="{% static 'output.css' %}">
     {% block fullcalendar %}{% endblock fullcalendar %}
   </head>
   <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-      <div class="container-fluid">
+  <div class="w-screen h-screen">
+    <nav class="flex w-full bg-gray-800 space-x-8">
+      <div class="w-full">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
